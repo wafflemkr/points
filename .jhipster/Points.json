@@ -1,0 +1,44 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "login"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "exercise",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "meals",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "alcohol",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "notes",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 140
+        }
+    ],
+    "changelogDate": "20180119022741",
+    "entityTableName": "points",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

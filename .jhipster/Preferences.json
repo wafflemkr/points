@@ -1,0 +1,40 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "preferences"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "weeklyGoals",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 10,
+            "fieldValidateRulesMax": 21
+        },
+        {
+            "fieldName": "weightUnit",
+            "fieldType": "WeightUnit",
+            "fieldValues": "LBS,KG",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180119022744",
+    "entityTableName": "preferences",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

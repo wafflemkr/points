@@ -1,0 +1,44 @@
+entity Points {
+	date LocalDate,
+    exercise Integer,
+    meals Integer,
+    alcohol Integer,
+    notes String required maxlength(140)
+}
+
+entity Weight {
+	timestamp ZonedDateTime,
+    weight Double,
+}
+
+entity BloodPressure {
+	timestamp LocalDate,
+    systolic Integer,
+    diastolic Integer
+}
+
+enum WeightUnit {
+	LBS, KG
+}
+entity Preferences {
+	weeklyGoals Integer  required min(10) max(21),
+    weightUnit WeightUnit required
+}
+
+relationship ManyToOne {
+	Points{user(login)} to User,
+    Weight{user(login)} to User,
+    BloodPressure{user(login)} to User	
+}
+
+relationship OneToOne {
+	Preferences{user(login)} to User	
+}
+
+// Set pagination options
+paginate Points, Weight, BloodPressure with infinite-scroll
+
+dto * with mapstruct
+
+// Set an angular suffix
+//angularSuffix * with mySuffix
